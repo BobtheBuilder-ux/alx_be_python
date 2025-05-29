@@ -5,20 +5,22 @@ def daily_reminder():
     task = input("Enter your task: ")
     priority = input("Priority (high/medium/low): ").lower()
     time_bound = input("Is it time-bound? (yes/no): ").lower()
-
-    # Process task using match case and conditionals
+    
+    print()  # Add spacing for better readability
+    
+    # Customized reminder logic
     if time_bound == 'yes':
-        print(f"\nReminder: '{task}' is a {priority} priority task that requires immediate attention today!")
+        print(f"Reminder: '{task}' is a {priority} priority task that requires immediate attention today!")
     else:
         match priority:
             case 'high':
-                print(f"\nNote: '{task}' is a high priority task. Although not time-bound, it is important to complete it soon.")
+                print(f"Note: '{task}' is a high priority task. Complete it as soon as possible.")
             case 'medium':
-                print(f"\nNote: '{task}' is a medium priority task. Consider completing it in the next few days.")
+                print(f"Note: '{task}' is a medium priority task. Should be completed this week.")
             case 'low':
-                print(f"\nNote: '{task}' is a low priority task. Consider completing it when you have free time.")
+                print(f"Note: '{task}' is a low priority task. Consider completing it when you have free time.")
             case _:
-                print("\nInvalid priority level entered. Please use high, medium, or low.")
+                print("Invalid priority level entered. Please use high, medium, or low.")
 
 if __name__ == "__main__":
     daily_reminder()
