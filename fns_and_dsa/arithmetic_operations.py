@@ -1,27 +1,28 @@
 # arithmetic_operations.py
 
-def perform_operation(num1: float, num2: float, operation: str) -> float | str:
+from typing import Union
+
+def perform_operation(num1: float, num2: float, operation: str) -> Union[float, str]:
     """
-    Performs basic arithmetic operations on two numbers
+    Perform basic arithmetic operations on two numbers.
     
     Args:
-        num1: First operand
-        num2: Second operand
-        operation: Type of operation (add, subtract, multiply, divide)
-    
+        num1 (float): First number
+        num2 (float): Second number
+        operation (str): Operation to perform ('add', 'subtract', 'multiply', 'divide')
+        
     Returns:
-        Result of arithmetic operation or error message for division by zero
+        Union[float, str]: Result of operation or error message for division by zero
     """
-    match operation:
-        case 'add':
-            return num1 + num2
-        case 'subtract':
-            return num1 - num2
-        case 'multiply':
-            return num1 * num2
-        case 'divide':
-            if num2 == 0:
-                return "Error: Division by zero"
-            return num1 / num2
-        case _:
-            return "Error: Invalid operation"
+    if operation == "add":
+        return float(num1 + num2)
+    elif operation == "subtract":
+        return float(num1 - num2)
+    elif operation == "multiply":
+        return float(num1 * num2)
+    elif operation == "divide":
+        if num2 == 0:
+            return "Error: Division by zero"
+        return float(num1 / num2)
+    else:
+        return f"Error: Invalid operation. Please use 'add', 'subtract', 'multiply', or 'divide'"
